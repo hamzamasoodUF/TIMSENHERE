@@ -1,13 +1,20 @@
 def encode(password):
 
     input_array = [int(char) for char in password]
-    for i in range(len(input_array) - 1, -1, -1):
+    for i in range(len(input_array)):
         new_digit = input_array[i] + 3
         input_array[i] = new_digit % 10
     result_string = ''.join(map(str, input_array))
 
     return result_string
+def decoder(turtle):
+    input_array = [int(char) for char in password]
+    for i in range(len(input_array)):
+        new_digit = input_array[i] - 3
+        input_array[i] = (new_digit + 10) % 10
+    original_password = ''.join(map(str, input_array))
 
+    return original_password
 
 
 '__main__' == '__name__'
@@ -37,6 +44,7 @@ while cat == 1:
             turtle = encode(password)
             print("Your password has been encoded and stored!")
         if menu_value == 2:
-            print("missing decode")
+            decoded = decoder(turtle)
+            print(f"the encoded password is {turtle}, the original password is {password}")
         if menu_value == 3:
             break
